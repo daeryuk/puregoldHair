@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>순금헤어</title>
+    <link rel="stylesheet" type="text/css" href="home.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <p class="header-title">순금헤어</p>
+        <div class="header-buttons">
+          <p id="loginText" class="header-text">로그인</p>
+          <p id="signupText" class="header-text">회원가입</p>
+        </div>
+      </div>
+    </header>
+    <p>순금헤어입니다. 예약하시겠습니까?</p>
+
+    <!-- 로그인 폼 -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('loginModal')">&times;</span>
+          <h2>로그인</h2>
+          <form>
+            <input type="email" id="loginEmail" placeholder="이메일" required />
+            <input type="password" id="loginPassword" placeholder="비밀번호" required />
+            <button id="loginSubmit">로그인</button>
+          </form>
+        </div>
+      </div>
+
+    <!-- 회원가입 폼 -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('signupModal')">&times;</span>
+          <h2>회원가입</h2>
+          <form>
+            <input type="email" id="signupEmail" placeholder="이메일" required />
+            <input type="text" id="signupName" placeholder="이름" required />
+            <input type="tel" id="signupPhone" placeholder="전화번호" required />
+            <input type="password" id="signupPassword" placeholder="비밀번호" required />
+            <input type="password" id="signupPasswordConfirm" placeholder="비밀번호 확인" required />
+            <button id="signupSubmit">회원가입</button>
+          </form>
+        </div>
+      </div>
+
+    <script src="firebase.js"></script>
+    <script src="login.js"></script>
+    <script src="signup.js"></script>
+    <script src="home.js"></script>
+  </body>
+</html>
