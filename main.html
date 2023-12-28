@@ -1,12 +1,24 @@
 <!--main.html-->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>환영합니다. 여기는 메인화면 입니다. 여기서는 예약을 할 수 있습니다.</p>
-</body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인페이지</title>
+    <script>
+      window.onload = function () {
+        // 세션 스토리지에서 사용자의 이름을 가져옵니다.
+        var name = sessionStorage.getItem('username') || 'Anonymous';
+
+        // 사용자의 이름을 화면에 출력합니다.
+        document.getElementById('welcomeMessage').textContent =
+          '환영합니다. ' +
+          name +
+          '님! 여기는 메인화면 입니다. 여기서는 예약을 할 수 있습니다.';
+      };
+    </script>
+  </head>
+  <body>
+    <h1 id="welcomeMessage"></h1>
+  </body>
 </html>
