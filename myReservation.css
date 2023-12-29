@@ -37,7 +37,7 @@ body {
     border-radius: 3px;
     color: #fff;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 2em;
     margin-bottom: 20px;
     width: 80%; /* 버튼과 링크의 너비를 최대로 설정 */
     box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
