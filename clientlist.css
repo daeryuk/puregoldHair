@@ -1,0 +1,65 @@
+/* clientlist.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#reservationList {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    margin: 20px 0;
+}
+
+#reservationList th,
+#reservationList td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#reservationList th {
+    background-color: #f8f8f8;
+    border-top: none;
+}
+
+#reservationList td {
+    border-top: none;
+}
+
+#deleteBtn,
+#returnMain {
+    display: inline-block;
+    width: 200px; /* 버튼의 길이를 동일하게 설정 */
+    margin: 20px;
+    padding: 30px 20px;
+    border: none;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 10px;
+    transition: background 0.5s;
+}
+
+#deleteBtn {
+    background: linear-gradient(to right, #ff0000, #b50000); /* 삭제 버튼의 색상을 붉은색으로 변경 */
+}
+
+#deleteBtn:hover {
+    background: linear-gradient(to right, #b50000, #ff0000);
+}
+
+#returnMain {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+}
+
+#returnMain:hover {
+    background: linear-gradient(to right, #ff5e62, #ff9966);
+}
+
+.selected {
+    background-color: #fdd;
+}

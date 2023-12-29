@@ -35,4 +35,12 @@ window.onload = function () {
 
     alert('예약이 완료되었습니다.');
   });
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user && user.email === 'admin@gmail.com') {
+      var adminBtn = document.createElement('a');
+      adminBtn.href = 'clientlist.html';
+      adminBtn.textContent = '고객예약 리스트 보기';
+      document.body.appendChild(adminBtn);
+    }
+  });
 };
