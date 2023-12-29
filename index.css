@@ -1,14 +1,15 @@
-/* home.css */
+/* index.css */
 @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
-
 body {
     font-family: 'Poor Story', cursive;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: rgb(221, 222, 162);
+    height: 100vh; /* 브라우저 뷰포트 높이로 설정 */
+    min-height: 100%; /* 최소 높이를 100%로 설정 */
+    background-color: rgb(5, 5, 40);
+    overflow: hidden;
 }
 
 .container {
@@ -54,4 +55,34 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* Shooting star animation */
+body::before {
+    content: '\2605'; /* 별 모양 */
+    font-size: 2rem;
+    color: #FFD700; /* 노란색 */
+    position: absolute;
+    animation: shootingStar linear infinite;
+    animation-duration: 1s; /* 애니메이션 속도 */
+    animation-delay: -0.5s; /* 별이 떨어지기 전 대기 시간 */
+    opacity: 0;
+}
+
+body:hover::before {
+    opacity: 1;
+}
+
+@keyframes shootingStar {
+    0% {
+        transform: translateY(-100vh) rotate(45deg) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(45deg) scale(0);
+        opacity: 0;
+    }
 }

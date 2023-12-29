@@ -1,0 +1,35 @@
+<!-- reservation.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>예약하기</title>
+    <link rel="stylesheet" type="text/css" href="reservation.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  </head>
+  <body>
+    <form id="reservationForm">
+      <div id="visitTime">
+        <select id="amPm">
+          <option value="am">오전</option>
+          <option value="pm">오후</option>
+        </select>
+        <input type="number" id="hour" min="1" max="12" placeholder="시" />
+        <input type="number" id="minute" min="0" max="59" placeholder="분" />
+      </div>
+      <select id="gender">
+        <option value="male">남</option>
+        <option value="female">여</option>
+      </select>
+      <input type="text" id="cutContent" placeholder="희망 커트내용" />
+      <button type="submit">예약하기</button>
+      <a href="myReservation.html" id="viewReservationBtn">내 예약정보 보기</a>
+      <a href="main.html" id="returnMain">메인 화면으로</a>
+    </form>
+
+    <script src="firebase.js"></script>
+    <script src="reservation.js"></script>
+  </body>
+</html>

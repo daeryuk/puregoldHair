@@ -1,0 +1,22 @@
+<!-- reservation.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>내 예약정보 보기</title>
+    <link rel="stylesheet" type="text/css" href="myReservation.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  </head>
+  <body>
+    <div id="reservationDetails"></div>
+    <div id="reservationInfo">
+      <a href="reservation.html" id="returnReservation">예약 화면으로</a>
+
+      <button id="cancelReservation">예약 취소</button>
+    </div>
+    <script src="firebase.js"></script>
+    <script src="myReservation.js"></script>
+  </body>
+</html>
