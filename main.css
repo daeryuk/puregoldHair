@@ -98,7 +98,6 @@ footer {
     padding: 20px; /* 푸터 패딩 조절 */
     text-align: center;
     position: relative;
-    bottom: 0;
     width: 100%;
     margin-top: 20px; /* 푸터 상단 마진 추가 */
 }
