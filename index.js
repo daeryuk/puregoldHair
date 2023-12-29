@@ -84,6 +84,8 @@ document.getElementById('loginButton').addEventListener('click', function () {
     .then((userCredential) => {
       // 로그인 성공
       var user = userCredential.user;
+      // 이메일 정보를 세션 스토리지에 저장합니다.
+      sessionStorage.setItem('email', email);
 
       // 데이터베이스에서 사용자의 이름을 가져옵니다.
       db.ref('users/' + user.uid)

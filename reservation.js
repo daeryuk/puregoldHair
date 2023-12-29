@@ -22,7 +22,7 @@ window.onload = function () {
 
     var gender = document.getElementById('gender').value;
     var cutContent = document.getElementById('cutContent').value;
-    var username = sessionStorage.getItem('username') || 'Anonymous';
+    var username = sessionStorage.getItem('username');
     var email = sessionStorage.getItem('email') || 'Unknown';
 
     database.ref('reservations/').push({
