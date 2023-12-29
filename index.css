@@ -56,33 +56,3 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-
-/* Shooting star animation */
-body::before {
-    content: '\2605'; /* 별 모양 */
-    font-size: 2rem;
-    color: #FFD700; /* 노란색 */
-    position: absolute;
-    animation: shootingStar linear infinite;
-    animation-duration: 1s; /* 애니메이션 속도 */
-    animation-delay: -0.5s; /* 별이 떨어지기 전 대기 시간 */
-    opacity: 0;
-}
-
-body:hover::before {
-    opacity: 1;
-}
-
-@keyframes shootingStar {
-    0% {
-        transform: translateY(-100vh) rotate(45deg) scale(0);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) rotate(45deg) scale(0);
-        opacity: 0;
-    }
-}
