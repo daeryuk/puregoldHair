@@ -24,16 +24,15 @@ body {
 
 #reservationInfo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     width: 80%;
-    height: 80%;
     margin-top: 20px;
     padding: 10px;
 }
 
 #reservationInfo button, #reservationInfo a {
-    padding: 10px;
+    padding: 30px;
     border: none;
     border-radius: 3px;
     color: #fff;
@@ -44,6 +43,8 @@ body {
     box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
     text-align: center;
     text-decoration: none;
+    margin:10px; /* 버튼 주변에 10px의 마진을 설정 */
+
 }
 
 #reservationInfo #cancelReservation {

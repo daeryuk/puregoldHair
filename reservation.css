@@ -12,12 +12,11 @@ body {
     display: flex;
     flex-direction: column;
     width: 80%;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #fff;
     margin-bottom: 20px;
-    height: 90%;
 }
 
 #reservationForm select, #reservationForm input[type="number"], #reservationForm input[type="text"] {
@@ -31,7 +30,7 @@ body {
 }
 
 #reservationForm button[type="submit"] {
-    padding: 10px;
+    padding: 20px;
     border: none;
     border-radius: 3px;
     background-color: #007BFF;
@@ -42,7 +41,7 @@ body {
 }
 
 #viewReservationBtn, #returnMain {
-    padding: 10px;
+    padding: 20px;
     border: none;
     border-radius: 3px;
     background-color: #4CAF50;
