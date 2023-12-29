@@ -17,10 +17,10 @@ window.onload = function () {
     if (data) {
       var html = '';
       for (var key in data) {
-        html += `<p>예약 시간: ${data[key].visitTime}</p>`;
-        html += `<p>이름: ${data[key].name}</p>`;
-        html += `<p>성별: ${data[key].gender}</p>`;
-        html += `<p>커트 내용: ${data[key].cutContent}</p>`;
+        html += `<p>예약 시간▶ ${data[key].visitTime}</p>`;
+        html += `<p>이름▶ ${data[key].name}</p>`;
+        html += `<p>성별▶ ${data[key].gender}</p>`;
+        html += `<p>커트 내용▶ ${data[key].cutContent}</p>`;
       }
       reservationDetails.innerHTML = html;
     } else {
