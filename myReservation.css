@@ -12,22 +12,24 @@ body {
 }
 
 #reservationDetails {
-    width: 30%;
+    width: 100%;
     max-width: 800px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #fff;
     padding: 20px;
     text-align: left;
-    font-size: 1em;
+    font-size: 2em;
 }
 
 #reservationInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 80%;
+    height: 80%;
     margin-top: 20px;
+    padding: 10px;
 }
 
 #reservationInfo button, #reservationInfo a {
@@ -38,7 +40,7 @@ body {
     cursor: pointer;
     font-size: 1em;
     margin-bottom: 10px;
-    width: 100%; /* 버튼과 링크의 너비를 최대로 설정 */
+    width: 80%; /* 버튼과 링크의 너비를 최대로 설정 */
     box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
     text-align: center;
     text-decoration: none;
