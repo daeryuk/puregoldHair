@@ -1,36 +1,56 @@
 // clientlist.js 수정
 db.ref('reservations').on('value', function(snapshot) {
     var data = snapshot.val();
-    var list = document.getElementById('reservationList');
-
-    // 기존에 표시되던 예약 목록 삭제
-    while (list.rows.length > 1) {
-        list.deleteRow(-1);
-    }
+    var tbody = document.querySelector('#reservationList tbody');
+    tbody.innerHTML = '';
 
     for (var key in data) {
-        var row = list.insertRow(-1);
+        var row = document.createElement('tr');
         row.id = key;
-        var checkboxCell = row.insertCell(-1);
+        
+        // Checkbox cell
+        var checkboxCell = document.createElement('td');
+        checkboxCell.className = 'checkbox-wrapper';
         var checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = key;
+        checkbox.className = 'custom-checkbox';
+        checkbox.addEventListener('change', function() {
+            this.closest('tr').classList.toggle('selected');
+        });
         checkboxCell.appendChild(checkbox);
-        var fields = ['name', 'visitTime', 'email', 'gender', 'cutContent']; // 'reservationTime'을 'visitTime'으로 변경
+        row.appendChild(checkboxCell);
 
-        for (var i = 0; i < fields.length; i++) {
-            var cell = row.insertCell(-1);
-            cell.textContent = data[key][fields[i]];
-        }
+        // Data cells
+        var fields = ['name', 'visitTime', 'email', 'gender', 'cutContent'];
+        fields.forEach(field => {
+            var cell = document.createElement('td');
+            if (field === 'gender') {
+                var badge = document.createElement('span');
+                badge.className = `status-badge status-${data[key][field].toLowerCase()}`;
+                badge.textContent = data[key][field];
+                cell.appendChild(badge);
+            } else {
+                cell.textContent = data[key][field];
+            }
+            row.appendChild(cell);
+        });
+
+        tbody.appendChild(row);
     }
 });
 
-// '선택 항목 삭제' 버튼 클릭 이벤트
 document.getElementById('deleteBtn').addEventListener('click', function() {
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    if (!confirm('선택한 예약을 삭제하시겠습니까?')) return;
 
-    for (var i = 0; i < checkboxes.length; i++) {
-        var key = checkboxes[i].id;
-        db.ref('reservations/' + key).remove();
-    }
+    var checkboxes = document.querySelectorAll('.custom-checkbox:checked');
+    checkboxes.forEach(checkbox => {
+        db.ref('reservations/' + checkbox.id).remove()
+            .then(() => {
+                console.log('예약이 성공적으로 삭제되었습니다.');
+            })
+            .catch(error => {
+                console.error('삭제 중 오류가 발생했습니다:', error);
+            });
+    });
 });

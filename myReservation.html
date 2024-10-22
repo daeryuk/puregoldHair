@@ -1,4 +1,4 @@
-<!-- reservation.html -->
+<!-- myReservation.html -->
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -10,12 +10,18 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
   </head>
   <body>
-    <div id="reservationDetails"></div>
-    <div id="reservationInfo">
-      <a href="reservation.html" id="returnReservation">예약화면</a>
-
-      <button id="cancelReservation">예약 취소</button>
+    <div class="container">
+      <div id="reservationDetails"></div>
+      <div id="reservationInfo">
+        <a href="main.html" id="returnReservation" class="btn">
+          <i class="fas fa-calendar-plus"></i>메인화면
+        </a>
+        <button id="cancelReservation" class="btn">
+          <i class="fas fa-times-circle"></i>예약 취소
+        </button>
+      </div>
     </div>
+
     <script src="firebase.js"></script>
     <script src="myReservation.js"></script>
   </body>

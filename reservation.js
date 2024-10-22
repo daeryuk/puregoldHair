@@ -3,44 +3,50 @@ window.onload = function () {
   var reservationForm = document.getElementById('reservationForm');
 
   reservationForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+      e.preventDefault();
 
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        // User is signed in.
-        sessionStorage.setItem('email', user.email);
-      } else {
-        // No user is signed in.
-        sessionStorage.setItem('email', 'Unknown');
-      }
-    });
+      firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+              sessionStorage.setItem('email', user.email);
 
-    var amPm = document.getElementById('amPm').value;
-    var hour = document.getElementById('hour').value;
-    var minute = document.getElementById('minute').value;
-    var visitTime = amPm + ' ' + hour + ':' + minute;
+              var visitTime = document.getElementById('timePicker').value;
+              var gender = document.getElementById('gender').value;
+              var cutContent = document.getElementById('cutContent').value;
+              var username = sessionStorage.getItem('username') || 'Unknown';
+              var email = sessionStorage.getItem('email') || 'Unknown';
 
-    var gender = document.getElementById('gender').value;
-    var cutContent = document.getElementById('cutContent').value;
-    var username = sessionStorage.getItem('username');
-    var email = sessionStorage.getItem('email') || 'Unknown';
-
-    database.ref('reservations/').push({
-      visitTime: visitTime,
-      gender: gender,
-      cutContent: cutContent,
-      name: username,
-      email: email,
-    });
-
-    alert('예약이 완료되었습니다.');
+              database.ref('reservations/').push({
+                  visitTime: visitTime,
+                  gender: gender,
+                  cutContent: cutContent,
+                  name: username,
+                  email: email,
+              }, function(error) {
+                  if (error) {
+                      alert('예약 저장에 실패했습니다. 다시 시도해주세요.');
+                  } else {
+                      alert('예약이 완료되었습니다.');
+                      window.location.href = 'myReservation.html';
+                  }
+              });
+          } else {
+              alert('예약을 위해 로그인이 필요합니다.');
+          }
+      });
   });
+
+  // 관리자 섹션 처리
   firebase.auth().onAuthStateChanged(function(user) {
-    if (user && user.email === 'admin@gmail.com') {
-      var adminBtn = document.createElement('a');
-      adminBtn.href = 'clientlist.html';
-      adminBtn.textContent = '고객예약 리스트 보기';
-      document.body.appendChild(adminBtn);
-    }
+      if (user && user.email === 'admin@gmail.com') {
+          var adminSection = document.getElementById('adminSection');
+          adminSection.innerHTML = `
+              <div class="admin-panel">
+                  <a href="clientlist.html" class="btn btn-admin">
+                      <i class="fas fa-users-cog"></i>
+                      고객예약 리스트 관리
+                  </a>
+              </div>
+          `;
+      }
   });
 };

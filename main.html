@@ -1,60 +1,62 @@
-<!-- main.html -->
+<!-- main.html (또는 index.html) -->
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인페이지</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
-  </head>
-  <body>
-    <header>
-      <div class="header-content">
-        <p class="header-title">순금헤어</p>
-        <nav>
-          <ul>
-            <li><a href="https://m.place.naver.com/hairshop/1216414317/home?entry=pll">소개</a></li>
-            <li><a href="https://zrr.kr/jIXT">빠른길찾기</a></li>
-            <li><a href="reservation.html">예약하기</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <section id="image-grid">
-      <div class="image-box">
-        <a class="image-link">
-          <img src="https://zrr.kr/IIgn" alt="전문성 이미지" class="image" />
-          <p class="image-caption">실력</p>
-        </a>
-      </div>
-      <div class="image-box">
-        <a class="image-link">
-          <img src="https://zrr.kr/7XeP" alt="미학 이미지" class="image" />
-          <p class="image-caption">미학</p>
-        </a>
-      </div>
-      <div class="image-box">
-        <a class="image-link">
-          <img src="https://zrr.kr/Ckl3" alt="소통 이미지" class="image" />
-          <p class="image-caption">소통</p>
-        </a>
-      </div>
-      <div class="image-box">
-        <a class="image-link">
-          <img src="https://zrr.kr/nRqL" alt="지속관리 이미지" class="image" />
-          <p class="image-caption">관리</p>
-        </a>
-      </div>
-    </section>
 
-    <footer>
-      <p class="footer-title">순금헤어</p>
-      <p>
-        (주)순금헤어 | 대표자 임정인 | 도로명: 경기 군포시 오금로 146 101호 |
-        지번: 금정동 865-1 | 우편번호: 15833 | 업체 전화번호 0507-1390-2905 |
-        Copyright ⓒ puregold.com. All rights Reserved.
-      </p>
-    </footer>
-    <script src="main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>메인페이지</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <!-- Firebase SDK 추가 -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <!--000님 안녕하세요-->
+      <span id="user-sayhi"></span>
+      <a class="button" id="logout-button">
+        <img src="https://cdn-icons-png.flaticon.com/256/5631/5631841.png" alt="로그아웃" />
+        <div class="logout">LOGOUT</div>
+      </a>
+      <p class="header-title">순금헤어</p>
+      
+      
+    </div>
+  </header>
+
+  <!-- 버튼형 메뉴 섹션 -->
+  <section id="button-menu">
+    <div class="menu-grid">
+      <div class="menu-button">
+        <a href="https://m.place.naver.com/hairshop/1216414317/home?entry=pll" target="_blank">소개</a>
+      </div>
+      <div class="menu-button">
+        <a href="https://zrr.kr/jIXT" target="_blank">빠른길찾기</a>
+      </div>
+      <div class="menu-button">
+        <a href="#" id="reservation-link">예약하기</a>
+      </div>
+      <div class="menu-button">
+        <a href="#" id="my-reservation-link">나의 예약정보</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-title">순금헤어</p>
+    <p>
+      (주)순금헤어 | 대표자 임정인 | 도로명: 경기 군포시 오금로 146 101호 |
+      지번: 금정동 865-1 | 우편번호: 15833 | 업체 전화번호 0507-1390-2905 |
+      Copyright ⓒ puregold.com. All rights Reserved.
+    </p>
+  </footer>
+  <script src="firebase.js"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>

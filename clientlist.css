@@ -1,65 +1,181 @@
 /* clientlist.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h1 {
+    color: #2c3e50;
     text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    overflow-x: auto;
 }
 
 #reservationList {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 15px;
-    margin: 20px 0;
+    border-collapse: collapse;
+    background: white;
+    margin-bottom: 1rem;
 }
 
 #reservationList th,
 #reservationList td {
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 10px;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
 }
 
 #reservationList th {
-    background-color: #f8f8f8;
-    border-top: none;
+    background: #f8f9fa;
+    color: #2c3e50;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
-#reservationList td {
-    border-top: none;
-}
-
-#deleteBtn,
-#returnMain {
-    display: inline-block;
-    width: 200px; /* 버튼의 길이를 동일하게 설정 */
-    margin: 20px;
-    padding: 30px 20px;
-    border: none;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 10px;
-    transition: background 0.5s;
-}
-
-#deleteBtn {
-    background: linear-gradient(to right, #ff0000, #b50000); /* 삭제 버튼의 색상을 붉은색으로 변경 */
-}
-
-#deleteBtn:hover {
-    background: linear-gradient(to right, #b50000, #ff0000);
-}
-
-#returnMain {
-    background: linear-gradient(to right, #ff9966, #ff5e62);
-}
-
-#returnMain:hover {
-    background: linear-gradient(to right, #ff5e62, #ff9966);
+#reservationList tr:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
 }
 
 .selected {
-    background-color: #fdd;
+    background-color: #fff3f3 !important;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 2px solid #ddd;
+    position: relative;
+    appearance: none;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.custom-checkbox:checked {
+    background: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.custom-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    gap: 0.5rem;
+}
+
+#deleteBtn {
+    background: linear-gradient(135deg, #ff6b6b, #ee5253);
+}
+
+#deleteBtn:hover {
+    background: linear-gradient(135deg, #ee5253, #ff6b6b);
+    transform: translateY(-2px);
+}
+
+#returnMain {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+#returnMain:hover {
+    background: linear-gradient(135deg, #45a049, #4CAF50);
+    transform: translateY(-2px);
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.status-male {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.status-female {
+    background-color: #fce4ec;
+    color: #c2185b;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    #reservationList {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
 }
