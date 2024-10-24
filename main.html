@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>메인페이지</title>
   <link rel="stylesheet" type="text/css" href="main.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Firebase SDK 추가 -->
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
@@ -46,6 +47,18 @@
 
     </div>
   </section>
+
+ <!--리뷰들 보여주기-->
+  <section id="reviews-container">
+  <div class="reviews-wrapper">
+    <div class="reviews-track">
+      <!-- 첫번째 세트 -->
+      <div id="reviews" class="reviews-content"></div>
+      <!-- 두번째 세트 (무한 스크롤을 위한 복제) -->
+      <div id="reviews-clone" class="reviews-content"></div>
+    </div>
+  </div>
+</section>
 
   <footer>
     <p class="footer-title">순금헤어</p>
